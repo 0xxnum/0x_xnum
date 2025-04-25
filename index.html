@@ -78,6 +78,12 @@
             justify-content: center;
             background: #111;
             margin: 0 auto;
+            overflow: hidden;  /* Ensure content doesn't overflow */
+        }
+        .photo-placeholder img {
+            width: 100%; /* Make sure the image fills the container */
+            height: 100%; /* Ensure the image takes the full height of the container */
+            object-fit: cover; /* Ensures the image covers the circular area */
         }
         .social-icon {
             transition: transform 0.3s, text-shadow 0.3s;
@@ -108,10 +114,9 @@
     <section class="min-h-screen flex items-center justify-center text-center px-4">
         <div>
             <!-- Photo Placeholder -->
-<div class="photo-placeholder mb-6">
-    <img src="https://raw.githubusercontent.com/0xxnum/0x_xnum/main/486012056_1591812238179311_1031226112242726521_n.jpg">
-</div>
-
+            <div class="photo-placeholder mb-6">
+                <img src="https://raw.githubusercontent.com/0xxnum/0x_xnum/main/486012056_1591812238179311_1031226112242726521_n.jpg">
+            </div>
 
             <!-- Framed Text Box -->
             <div class="frame max-w-2xl mx-auto p-8 relative">
