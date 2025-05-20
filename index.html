@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ahmed Tarek (0x_xnum) - Bug Hunter and Cybersecurity Enthusiast">
+    <meta name="author" content="Ahmed Tarek">
     <title>Ahmed Tarek - Bug Hunter</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
@@ -11,6 +13,7 @@
             color: #22FF00;
             font-family: 'Courier New', monospace;
             overflow-x: hidden;
+            margin: 0;
         }
         #matrix {
             position: fixed;
@@ -50,6 +53,30 @@
             background: #22FF00;
             animation: load 2s forwards;
         }
+        .nav-bar {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #22FF00;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+        .nav-bar a {
+            color: #22FF00;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            transition: text-shadow 0.3s;
+        }
+        .nav-bar a:hover {
+            text-shadow: 0 0 10px #22FF00;
+        }
+        .achievement {
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px #22FF00;
+            margin: 0.5rem 0;
+        }
         @keyframes flicker {
             0% { opacity: 1; }
             100% { opacity: 0.97; }
@@ -68,8 +95,8 @@
             100% { width: 100%; }
         }
         .photo-placeholder {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             border: 4px solid #22FF00;
             box-shadow: 0 0 15px #22FF00;
@@ -78,12 +105,17 @@
             justify-content: center;
             background: #111;
             margin: 0 auto;
-            overflow: hidden;  /* Ensure content doesn't overflow */
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #22FF00;
         }
         .photo-placeholder img {
-            width: 100%; /* Make sure the image fills the container */
-            height: 100%; /* Ensure the image takes the full height of the container */
-            object-fit: cover; /* Ensures the image covers the circular area */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .social-icon {
             transition: transform 0.3s, text-shadow 0.3s;
@@ -104,18 +136,40 @@
         @keyframes reveal {
             to { opacity: 1; }
         }
+        @media (max-width: 640px) {
+            .frame {
+                padding: 1.5rem;
+            }
+            .photo-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+            .nav-bar a {
+                margin: 0 0.75rem;
+                font-size: 0.9rem;
+            }
+            .achievement {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body class="relative">
+    <!-- Navigation Bar -->
+    <nav class="nav-bar text-center">
+        <a href="#home" class="glow">Home</a>
+        <a href="https://ahmed-tarek.gitbook.io/security-notes" class="glow">Security Notes</a>
+    </nav>
+
     <!-- Matrix Background -->
     <canvas id="matrix"></canvas>
 
     <!-- Main Content -->
-    <section class="min-h-screen flex items-center justify-center text-center px-4">
+    <section id="home" class="min-h-screen flex items-center justify-center text-center px-4 pt-20">
         <div>
             <!-- Photo Placeholder -->
-            <div class="photo-placeholder mb-6">
-                <img src="https://raw.githubusercontent.com/0xxnum/0x_xnum/main/486012056_1591812238179311_1031226112242726521_n.jpg">
+            <div class="photo-placeholder mb-8">
+                <img src="https://raw.githubusercontent.com/0xxnum/0x_xnum/main/486012056_1591812238179311_1031226112242726521_n.jpg" alt="Ahmed Tarek">
             </div>
 
             <!-- Framed Text Box -->
@@ -123,19 +177,18 @@
                 <div class="loading-bar"></div>
                 <div class="content">
                     <h1 id="typed" class="text-5xl md:text-6xl font-bold glow mb-4"></h1>
-                    <p class="text-lg md:text-xl glow mb-6">
-                        I’m Ahmed Tarek (aka 0x_xnum).
-I’m a hacker, kind of.
-Sometimes I find things that probably shouldn’t be there.
-Top 1000 on Bugcrowd.
+                    <p class="text-lg md:text-xl glow mb-4">
+                        I’m Ahmed Tarek (0x_xnum). I hack stuff, kind of. 
+                        I find stuff that’s not supposed to be found.
                     </p>
-                    <div class="flex justify-center space-x-6 mb-4">
-                        <a href="https://www.facebook.com/0xxnum/" class="text-2xl social-icon" title="Facebook">f</a>
-                        <a href="https://x.com/0x_xnum" class="text-2xl social-icon" title="Twitter">𝕏</a>
-                        <a href="https://www.linkedin.com/in/0x-xnum/" class="text-2xl social-icon" title="LinkedIn">in</a>
-                        <a href="https://ahmed-tarek.gitbook.io/security-notes" class="text-2xl social-icon" title="Notes">📝</a>
+                    <p class="achievement">Top 1000 on Bugcrowd</p>
+                    <div class="flex justify-center space-x-8 mb-6">
+                        <a href="https://www.facebook.com/0xxnum/" class="text-2xl social-icon" title="Facebook" aria-label="Facebook">f</a>
+                        <a href="https://x.com/0x_xnum" class="text-2xl social-icon" title="Twitter" aria-label="Twitter">𝕏</a>
+                        <a href="https://www.linkedin.com/in/0x-xnum/" class="text-2xl social-icon" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="https://medium.com/@0x_xnum" class="text-2xl social-icon" title="Medium" aria-label="Medium">M</a>
                     </div>
-                    <p class="text-sm glow">© 2025 Ahmed Tarek. Code Is My Battleground.</p>
+                    <p class="text-sm glow">© 2025 Ahmed Tarek. Bugs don’t stand a chance when I’m around.</p>
                 </div>
             </div>
         </div>
@@ -143,7 +196,7 @@ Top 1000 on Bugcrowd.
 
     <!-- JavaScript -->
     <script>
-        // Matrix Effect with "EGYPT" Easter Egg
+        // Optimized Matrix Effect
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -168,15 +221,18 @@ Top 1000 on Bugcrowd.
                     ctx.fillText(easterEgg[i], (startCol + i) * fontSize, canvas.height / 2);
                 }
             } else {
-                drops.forEach((y, i) => {
+                for (let i = 0; i < drops.length; i++) {
                     const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                    ctx.fillText(text, i * fontSize, y * fontSize);
-                    if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
                     drops[i]++;
-                });
+                }
             }
+            requestAnimationFrame(drawMatrix);
         }
-        setInterval(drawMatrix, 33);
+        requestAnimationFrame(drawMatrix);
 
         // Typing Animation with Glitches
         const typed = document.getElementById('typed');
@@ -187,7 +243,7 @@ Top 1000 on Bugcrowd.
         function type() {
             if (index < text.length) {
                 let displayText = text.slice(0, index + 1);
-                if (Math.random() < 0.2 && index > 0) {
+                if (Math.random() < 0.15 && index > 0) {
                     displayText = displayText.slice(0, -1) + glitches[Math.floor(Math.random() * glitches.length)];
                     setTimeout(() => {
                         typed.textContent = text.slice(0, index + 1);
@@ -198,12 +254,29 @@ Top 1000 on Bugcrowd.
                 setTimeout(type, 200);
             }
         }
-        setTimeout(type, 2500); // Start after loading bar
+        setTimeout(type, 2500);
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('.nav-bar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
         // Resize Canvas
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            drops.length = Math.floor(canvas.width / fontSize);
+            drops.fill(0);
         });
     </script>
 </body>
