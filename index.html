@@ -53,29 +53,9 @@
             background: #22FF00;
             animation: load 2s forwards;
         }
-        .nav-bar {
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 2px solid #22FF00;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-        }
-        .nav-bar a {
-            color: #22FF00;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 1.1rem;
-            transition: text-shadow 0.3s;
-        }
-        .nav-bar a:hover {
-            text-shadow: 0 0 10px #22FF00;
-        }
         .achievement {
             font-size: 0.9rem;
             text-shadow: 0 0 5px #22FF00;
-            margin: 0.5rem 0;
         }
         @keyframes flicker {
             0% { opacity: 1; }
@@ -144,10 +124,6 @@
                 width: 120px;
                 height: 120px;
             }
-            .nav-bar a {
-                margin: 0 0.75rem;
-                font-size: 0.9rem;
-            }
             .achievement {
                 font-size: 0.8rem;
             }
@@ -155,12 +131,6 @@
     </style>
 </head>
 <body class="relative">
-    <!-- Navigation Bar -->
-    <nav class="nav-bar text-center">
-        <a href="#home" class="glow">Home</a>
-        <a href="https://ahmed-tarek.gitbook.io/security-notes" class="glow">Security Notes</a>
-    </nav>
-
     <!-- Matrix Background -->
     <canvas id="matrix"></canvas>
 
@@ -178,15 +148,15 @@
                 <div class="content">
                     <h1 id="typed" class="text-5xl md:text-6xl font-bold glow mb-4"></h1>
                     <p class="text-lg md:text-xl glow mb-4">
-                        I’m Ahmed Tarek (0x_xnum). I hack stuff, kind of. 
-                        I find stuff that’s not supposed to be found.
+                        I’m Ahmed Tarek (0x_xnum). I hack stuff, kind of. I find stuff that’s not supposed to be found.
                     </p>
-                    <p class="achievement">Top 1000 on Bugcrowd</p>
+                    <p class="achievement mb-6">Top 1000 on Bugcrowd</p>
                     <div class="flex justify-center space-x-8 mb-6">
                         <a href="https://www.facebook.com/0xxnum/" class="text-2xl social-icon" title="Facebook" aria-label="Facebook">f</a>
                         <a href="https://x.com/0x_xnum" class="text-2xl social-icon" title="Twitter" aria-label="Twitter">𝕏</a>
                         <a href="https://www.linkedin.com/in/0x-xnum/" class="text-2xl social-icon" title="LinkedIn" aria-label="LinkedIn">in</a>
                         <a href="https://medium.com/@0x_xnum" class="text-2xl social-icon" title="Medium" aria-label="Medium">M</a>
+                        <a href="https://ahmed-tarek.gitbook.io/security-notes" class="text-2xl social-icon" title="Security Notes" aria-label="Security Notes">📝</a>
                     </div>
                     <p class="text-sm glow">© 2025 Ahmed Tarek. Bugs don’t stand a chance when I’m around.</p>
                 </div>
@@ -255,21 +225,6 @@
             }
         }
         setTimeout(type, 2500);
-
-        // Smooth Scroll for Navigation
-        document.querySelectorAll('.nav-bar a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
 
         // Resize Canvas
         window.addEventListener('resize', () => {
